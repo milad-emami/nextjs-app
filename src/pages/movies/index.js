@@ -24,5 +24,10 @@ export async function getServerSideProps() {
   );
   const data = await stream.json();
 
-  return { props: { movies: data.results } };
+  return {
+    props: {
+      movies: data.results,
+      seo: { title: "popular movies", description: "popular movies data" },
+    },
+  };
 }
