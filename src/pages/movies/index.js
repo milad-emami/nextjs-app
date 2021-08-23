@@ -1,11 +1,17 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Movies({ movies }) {
-  console.log("client", movies);
   return (
     <div>
       {movies ? (
-        movies.map((movie) => <h1 key={movie.id}>{movie.title}</h1>)
+        movies.map((movie) => (
+          <Link key={movie.id} href={`movies/${movie.id}`}>
+            <a>
+              <h1>{movie.title}</h1>
+            </a>
+          </Link>
+        ))
       ) : (
         <h1>Loding...</h1>
       )}
